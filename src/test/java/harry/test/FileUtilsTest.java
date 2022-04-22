@@ -61,10 +61,10 @@ public class FileUtilsTest {
 	
 	@Test
 	public void test() throws IOException {
-		String fileName = "tapestry-spring-1.0.0.jar";
-		String groupId = "tapestry";
-		String artifactId = "tapestry-spring";
-		String version = "1.0.0";
+		String fileName = "rt-1.8.jar";
+		String groupId = "sun.jdk";
+		String artifactId = "rt";
+		String version = "1.8";
 		String packaging = "jar";
 		
 		Map<String,String> hashMap = new HashMap<String,String>();
