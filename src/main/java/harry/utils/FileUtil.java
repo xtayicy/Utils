@@ -1,9 +1,12 @@
 package harry.utils;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.io.Reader;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -23,6 +26,13 @@ public final class FileUtil {
 	private static final String EQUALS = "=";
 
 	private FileUtil() {}
+	
+	public static final void append(File file,String content) throws IOException{
+		try (BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file,true)))) {
+			writer.write(content);
+			writer.write("\r\n");
+		}
+	}
 	
 	private static final String getContent(File file) throws IOException{
 		StringBuffer sb = new StringBuffer();

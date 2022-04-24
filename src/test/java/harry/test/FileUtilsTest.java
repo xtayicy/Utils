@@ -24,6 +24,13 @@ import harry.utils.FileUtil;
 import harry.utils.MathUtil;
 
 public class FileUtilsTest {
+	@Test
+	public void testWrite() throws IOException{
+		for (int i = 0; i < 10; i++) {
+			String content = String.valueOf(i);
+			FileUtil.append(new File("testWrite.txt"), content);
+		}
+	}
 	
 	@Test
 	public void testIsArithmeticProgression(){
