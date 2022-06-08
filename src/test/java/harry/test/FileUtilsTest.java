@@ -1,35 +1,23 @@
 package harry.test;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.Reader;
-import java.io.Writer;
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
 
 import org.junit.Test;
 
-import harry.test.constant.Constant;
 import harry.test.entity.Jar;
-import harry.utils.FileUtil;
 import harry.utils.MathUtil;
 
 public class FileUtilsTest {
 	@Test
 	public void testWrite() throws IOException{
-		for (int i = 0; i < 10; i++) {
+		/*for (int i = 0; i < 10; i++) {
 			String content = String.valueOf(i);
 			FileUtil.append(new File("testWrite.txt"), content);
-		}
+		}*/
 	}
 	
 	@Test
@@ -41,7 +29,7 @@ public class FileUtilsTest {
 	
 	@Test
 	public void testRemove() throws FileNotFoundException{
-		File file = new File("F:/sql/demo.sql");
+		/*File file = new File("F:/sql/demo.sql");
 		
 		try (BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
 				BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File("F:/sql/demo.sql.bak"))));){
@@ -63,12 +51,11 @@ public class FileUtilsTest {
 			e.printStackTrace();
 		}
 		
-		System.out.println("end");
+		System.out.println("end");*/
 	}
 	
-	@Test
 	public void test() throws IOException {
-		String fileName = "rt-1.8.jar";
+		/*String fileName = "rt-1.8.jar";
 		String groupId = "sun.jdk";
 		String artifactId = "rt";
 		String version = "1.8";
@@ -81,25 +68,24 @@ public class FileUtilsTest {
 		hashMap.put("-Dfile", "F:\\jar\\" + fileName);
 		hashMap.put("-Dpackaging", packaging);
 		String result = FileUtil.getResult("test.txt",hashMap, "mvn deploy:deploy-file ");
-		System.out.println(result);
+		System.out.println(result);*/
 	}
 	
-	@Test
 	public void testDeleteFile(){
-		String directory = "D:\\.m2\\repository";
+		/*String directory = "D:\\.m2\\repository";
 		String fileName = "m2e-lastUpdated.properties";
-		deleteFile(directory, fileName,null);
+		deleteFile(directory, fileName,null);*/
 	}
 	
 	@Test
 	public void testDeleteEndWithFile(){
-		String directory = "D:\\.m2\\repository";
+		/*String directory = "D:\\.m2\\repository";
 		String suffix = ".lastUpdated";
-		deleteFile(directory, null,suffix);
+		deleteFile(directory, null,suffix);*/
 	}
 	
 	public void deleteFile(String directory,String fileName,String suffix){
-		File[] files = new File(directory).listFiles();
+		/*File[] files = new File(directory).listFiles();
 		for (File file : files) {
 			if(file.isDirectory()){
 				deleteFile(file.getAbsolutePath(),fileName,suffix);
@@ -110,12 +96,11 @@ public class FileUtilsTest {
 					
 				}
 			}
-		}
+		}*/
 	}
 	
-	@Test
 	public void delete() throws IOException{
-		String fileName = "errors.txt";
+		/*String fileName = "errors.txt";
 		String destFileName = "errors.log";
 		String m2_repository = "D:\\.m2\\repository";
 		clean(fileName,destFileName);
@@ -134,12 +119,12 @@ public class FileUtilsTest {
 				file.delete();
 				System.out.println(file.getAbsolutePath() + " has been deleted.");
 			}
-		}
+		}*/
 	}
 	
 	public Set<Jar> getJars(String fileName) throws IOException{
 		Set<Jar> jars = new HashSet<Jar>();
-		try(BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(new File(fileName))));){
+		/*try(BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(new File(fileName))));){
 			String line;
 			while((line = br.readLine()) != null){
 				String[] arrs = null;
@@ -156,13 +141,13 @@ public class FileUtilsTest {
 				
 				jars.add(new Jar(arrs[0], arrs[1], arrs[3]));
 			}
-		}
+		}*/
 		
 		return jars;
 	}
 	
 	public void clean(String src,String dest) throws IOException{
-		File destFile = new File(dest);
+		/*File destFile = new File(dest);
 		if(destFile.exists()){
 			destFile.delete();
 		}
@@ -181,7 +166,7 @@ public class FileUtilsTest {
 		}
 		
 		br.close();
-		bw.close();
+		bw.close();*/
 	}
 	
 	@Test
