@@ -3,12 +3,15 @@ package harry.test;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 import org.junit.Test;
 
 import harry.test.entity.Jar;
+import harry.utils.FileUtil;
 import harry.utils.MathUtil;
 
 public class FileUtilsTest {
@@ -54,11 +57,12 @@ public class FileUtilsTest {
 		System.out.println("end");*/
 	}
 	
+	@Test
 	public void test() throws IOException {
-		/*String fileName = "rt-1.8.jar";
-		String groupId = "sun.jdk";
-		String artifactId = "rt";
-		String version = "1.8";
+		String fileName = "answerscore-1.0.jar";
+		String groupId = "com.grape.common";
+		String artifactId = "answerscore";
+		String version = "1.0";
 		String packaging = "jar";
 		
 		Map<String,String> hashMap = new HashMap<String,String>();
@@ -68,7 +72,7 @@ public class FileUtilsTest {
 		hashMap.put("-Dfile", "F:\\jar\\" + fileName);
 		hashMap.put("-Dpackaging", packaging);
 		String result = FileUtil.getResult("test.txt",hashMap, "mvn deploy:deploy-file ");
-		System.out.println(result);*/
+		System.out.println(result);
 	}
 	
 	public void testDeleteFile(){
