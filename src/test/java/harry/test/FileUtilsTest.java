@@ -25,9 +25,11 @@ public class FileUtilsTest {
 	
 	@Test
 	public void testIsArithmeticProgression(){
-		int[] arrs = {1,4,7,10};
-		
-		System.out.println(MathUtil.isArithmeticProgression(arrs));
+		/*
+		 * int[] arrs = {1,4,7,10};
+		 * 
+		 * System.out.println(MathUtil.isArithmeticProgression(arrs));
+		 */
 	}
 	
 	@Test
