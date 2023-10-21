@@ -8,6 +8,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import org.apache.ibatis.reflection.SystemMetaObject;
 import org.junit.Test;
 
 import harry.test.entity.Jar;
@@ -59,23 +60,18 @@ public class FileUtilsTest {
 		System.out.println("end");*/
 	}
 	
-	@Test
-	public void test() throws IOException {
-		String fileName = "answerscore-1.0.jar";
-		String groupId = "com.grape.common";
-		String artifactId = "answerscore";
-		String version = "1.0";
-		String packaging = "jar";
-		
-		Map<String,String> hashMap = new HashMap<String,String>();
-		hashMap.put("-DgroupId", groupId);
-		hashMap.put("-DartifactId", artifactId);
-		hashMap.put("-Dversion", version);
-		hashMap.put("-Dfile", "F:\\jar\\" + fileName);
-		hashMap.put("-Dpackaging", packaging);
-		String result = FileUtil.getResult("test.txt",hashMap, "mvn deploy:deploy-file ");
-		System.out.println(result);
-	}
+	/*
+	 * @Test public void test() throws IOException { String fileName =
+	 * "answerscore-1.0.jar"; String groupId = "com.grape.common"; String artifactId
+	 * = "answerscore"; String version = "1.0"; String packaging = "jar";
+	 * 
+	 * Map<String,String> hashMap = new HashMap<String,String>();
+	 * hashMap.put("-DgroupId", groupId); hashMap.put("-DartifactId", artifactId);
+	 * hashMap.put("-Dversion", version); hashMap.put("-Dfile", "F:\\jar\\" +
+	 * fileName); hashMap.put("-Dpackaging", packaging); String result =
+	 * FileUtil.getResult("test.txt",hashMap, "mvn deploy:deploy-file ");
+	 * System.out.println(result); }
+	 */
 	
 	public void testDeleteFile(){
 		/*String directory = "D:\\.m2\\repository";

@@ -75,6 +75,22 @@ public final class FileUtil {
 		
 		return sb.toString();
 	}
+	
+	public static final void getPathOfFileBySize(String pathName,int size) {
+		File file = new File(pathName);
+		if(file.isDirectory()) {
+			File[] files = file.listFiles();
+			for (File f : files) {
+				getPathOfFileBySize(f.getAbsolutePath(),size);
+			}
+		}else {
+			if(file != null && file.isFile() && file.length() / 1024 / 1024 >= size) {
+				System.out.println(file.getAbsolutePath());
+				System.out.println(file.length() / 1024 / 1024);
+				System.out.println();
+			}
+		}
+	}
 
 	public static final void copy(String sourceFile, String... destDirectories) throws IOException {
 		File srcFile = new File(sourceFile);
