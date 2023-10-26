@@ -73,6 +73,7 @@ public class FileUtilsTest {
 	 * System.out.println(result); }
 	 */
 	
+	@Test
 	public void testDeleteFile(){
 		/*String directory = "D:\\.m2\\repository";
 		String fileName = "m2e-lastUpdated.properties";

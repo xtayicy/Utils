@@ -79,9 +79,12 @@ public final class FileUtil {
 	public static final void getPathOfFileBySize(String pathName,int size) {
 		File file = new File(pathName);
 		if(file.isDirectory()) {
-			File[] files = file.listFiles();
-			for (File f : files) {
-				getPathOfFileBySize(f.getAbsolutePath(),size);
+			for (File f : file.listFiles()) {
+				try {
+					getPathOfFileBySize(f.getAbsolutePath(),size);
+				}catch (NullPointerException e) {
+					continue;
+				}
 			}
 		}else {
 			if(file != null && file.isFile() && file.length() / 1024 / 1024 >= size) {
