@@ -63,6 +63,14 @@
 			<version>3.17</version>
 		</dependency>
 	</dependencies>
+	
+	<distributionManagement>
+		<snapshotRepository>
+			<id>user-snapshots</id>
+			<name>snapshots Repo</name>
+			<url>http://localhost:8081/repository/maven-snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
 
 	<build>
 		<pluginManagement>
