@@ -7,7 +7,7 @@ import java.util.Map;
  * @author harry
  *
  */
-public final class CheckUtil {
+public class CheckUtil {
 	private static final int SIZE = 0;
 	
 	private CheckUtil(){}

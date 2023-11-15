@@ -5,11 +5,11 @@ package harry.test.entity;
  * @author harry
  *
  */
-public class Jar {
+public class JarEntity {
 	private String groupId;
 	private String artifact;
 	private String version;
-	public Jar(String groupId, String artifact, String version) {
+	public JarEntity(String groupId, String artifact, String version) {
 		super();
 		this.groupId = groupId;
 		this.artifact = artifact;

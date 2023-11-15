@@ -10,8 +10,6 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.Map;
 
-import org.junit.Test;
-
 /**
  * 
  * @author harry
@@ -24,6 +22,7 @@ public final class HttpUtil {
 
 	public static String sendGet(String url, Map<String, String> params) {
 		StringBuffer sb = null;
+		
 		if (!CheckUtil.isNullOrZero(params)) {
 			sb = new StringBuffer("?");
 			int flag = 0;
@@ -64,14 +63,14 @@ public final class HttpUtil {
 		return result.toString();
 	}
 
-	@Test
+	//@Test
 	public void testSendGet() {
 		System.out.println(
 				sendGet("http://central.maven.org/maven2/org/apache/maven/plugins/maven-dependency-plugin/2.2/maven-dependency-plugin-2.2.pom",
 						null));
 	}
 
-	@Test
+	//@Test
 	public void testGetUrlFileName() {
 		String url = "http://central.maven.org/maven2/org/apache/maven/plugins/maven-dependency-plugin/2.2/maven-dependency-plugin-2.2.pom";
 		String file = url.substring(url.lastIndexOf("/") + 1, url.length());
@@ -98,7 +97,7 @@ public final class HttpUtil {
 		}
 	}
 	
-	@Test
+	//@Test
 	public void testHttpResultToFile() throws IOException{
 		String url = "http://central.maven.org/maven2/org/apache/maven/plugins/maven-dependency-plugin/2.2/maven-dependency-plugin-2.2.pom";
 		RequestType requestType = RequestType.GET;

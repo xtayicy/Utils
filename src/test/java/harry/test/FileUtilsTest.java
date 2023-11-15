@@ -11,9 +11,9 @@ import java.util.Set;
 import org.apache.ibatis.reflection.SystemMetaObject;
 import org.junit.Test;
 
-import harry.test.entity.Jar;
+import harry.test.entity.JarEntity;
 import harry.utils.FileUtil;
-import harry.utils.MathUtil;
+
 
 public class FileUtilsTest {
 	@Test
@@ -125,8 +125,8 @@ public class FileUtilsTest {
 		}*/
 	}
 	
-	public Set<Jar> getJars(String fileName) throws IOException{
-		Set<Jar> jars = new HashSet<Jar>();
+	public Set<JarEntity> getJars(String fileName) throws IOException{
+		Set<JarEntity> jars = new HashSet<JarEntity>();
 		/*try(BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(new File(fileName))));){
 			String line;
 			while((line = br.readLine()) != null){
