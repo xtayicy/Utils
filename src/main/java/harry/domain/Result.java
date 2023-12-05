@@ -6,7 +6,7 @@ public class Result {
 	private String msg;
 	
 	public Result() {
-		this("execute success!");
+		this("");
 	}
 	
 	public Result(String msg) {
