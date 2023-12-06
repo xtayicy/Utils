@@ -1,8 +1,6 @@
 package harry.domain;
 
 public class Result {
-	public static final String ERROR_MESSAGE_DATABASE = "No database selected";
-	
 	private String msg;
 	
 	public Result() {

@@ -14,45 +14,52 @@ public class DatabaseUtil {
 	private static String username = "root";
 	private static String password = "";
 	
-	public static Result execute(String sql,String dbName) {
+	public static Result execute(String sql,String dbName,boolean isOpenDebugMode) {
+		Long startTime = retrieveTimeWithDebugMode(isOpenDebugMode);
+		selectDatabase(dbName);
+		Result result = executeSQL(sql,dbName);
+		if(isOpenDebugMode) {
+			Long endTime = retrieveTimeWithDebugMode(isOpenDebugMode);
+			retrieveDurationTime(result,startTime,endTime);
+		}
 		
-		return executeSQL(sql,dbName);
+		return result;
 	}
 	
+	private static Long retrieveTimeWithDebugMode(boolean isOpenDebugMode) {
+		if(isOpenDebugMode) {
+			return System.currentTimeMillis();
+		}
+		
+		return null;
+	}
+
+	private static void retrieveDurationTime(Result result, long startTime, long endTime) {
+		// TODO Auto-generated method stub
+		result.setMsg(result.getMsg().concat(" ").concat("time=").concat(String.valueOf(endTime - startTime)));
+	}
+
 	private static Result executeSQL(String sql,String dbName) {
+		String resultMessage = initMsg();
+		
 		try(Connection conn = DriverManager.getConnection(url, username, password);
 	             PreparedStatement stmt = conn.prepareStatement(sql)){
 			if(IsQuery(sql)) {
-				String resultMessage = initMsg();
 				ResultSet resultSet = stmt.executeQuery(sql);
 				while(resultSet.next()) {
 					ResultSetMetaData metaData = resultSet.getMetaData();
 					for(int i = 1;i <= metaData.getColumnCount();i++) {
-						String columnLabel = metaData.getColumnLabel(i);
-						Object result = resultSet.getObject(i);
-						resultMessage = retrieveData(resultMessage,columnLabel,result);
+						resultMessage = retrieveData(resultMessage,metaData.getColumnLabel(i),resultSet.getObject(i));
 					}
 				}
-				
-				return new Result(resultMessage);
 			}else {
 				stmt.execute();
 			}
 		}catch(Exception e) {
-			//for debug,can delete
-			if(!e.getMessage().equals(Result.ERROR_MESSAGE_DATABASE)) {
-				e.printStackTrace();
-			}
-			
-			if(e.getMessage().equals(Result.ERROR_MESSAGE_DATABASE)) {
-				selectDatabase(dbName);
-				executeSQL(sql,dbName);
-			}
-			
 			return new Result(e.getMessage());
 		}
 		
-		return new Result();
+		return new Result(resultMessage);
 	}
 
 	private static String retrieveData(String resultMessage,String columnLabel, Object result) {
@@ -71,6 +78,8 @@ public class DatabaseUtil {
 	}
 
 	private static void selectDatabase(String dbName) {
-		DatabaseUtil.url = url.concat("/" + dbName);
+		if(dbName != null && !dbName.equals("")) {
+			DatabaseUtil.url = url.concat("/" + dbName);
+		}
 	}
 }
